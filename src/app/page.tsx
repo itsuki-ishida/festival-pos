@@ -102,18 +102,15 @@ export default function POSPage() {
                 <button
                   key={product.id}
                   onClick={() => addToCart(product)}
-                  className="group relative bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 text-left overflow-hidden"
+                  className="group relative rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 text-left overflow-hidden border-2 border-white/50"
+                  style={{
+                    background: `linear-gradient(135deg, ${color}18, ${color}08)`,
+                  }}
                 >
-                  {/* カテゴリカラーのアクセント */}
-                  <div
-                    className="absolute top-0 left-0 w-full h-1.5 rounded-t-2xl"
-                    style={{ background: `linear-gradient(90deg, ${color}, ${color}88)` }}
-                  />
-
                   {/* カテゴリアイコン */}
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-3 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: `${color}15` }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-3 transition-transform duration-300 group-hover:scale-110 shadow-sm"
+                    style={{ background: `${color}25`, border: `2px solid ${color}30` }}
                   >
                     {getCategoryIcon(product.categoryId)}
                   </div>
@@ -133,8 +130,11 @@ export default function POSPage() {
 
                   {/* ホバー時の追加エフェクト */}
                   <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl"
-                    style={{ background: color }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"
+                    style={{
+                      background: `linear-gradient(135deg, ${color}25, ${color}10)`,
+                      boxShadow: `inset 0 0 20px ${color}15`
+                    }}
                   />
                 </button>
               );
